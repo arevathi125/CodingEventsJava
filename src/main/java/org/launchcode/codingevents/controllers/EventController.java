@@ -29,7 +29,7 @@ public class EventController {
         return "create";
     }
 
-    @PostMapping("create1")
+    @PostMapping("create")
     public String createEvent(@RequestParam String eventName) {
         events.add(eventName);
         return "redirect:/events";
