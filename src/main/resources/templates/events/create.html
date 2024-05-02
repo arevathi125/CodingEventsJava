@@ -1,17 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Coding Events</title>
-</head>
-<body>
+<head th:replace="fragments :: head">
+    </head>
+<body class="container">
 
 <h1>Create Event</h1>
 
-<form method="post">
-    <input type="text" name="eventName">
-    <input type="submit" value="Create Event">
+<header th:replace="fragments :: header"></header>
+
+<form method="post" >
+    <div class="form-group">
+        <label>Name
+    <input type="text" name="eventName" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+    <input type="submit" value="Create Event" class="btn btn-success">
+    </div>
 </form>
 
+
 </body>
-</html>  
+</html>
