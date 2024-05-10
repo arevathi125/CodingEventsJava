@@ -35,6 +35,8 @@ public class Event {
         nextId++;
     }
 
+    //No-arg constructor
+    public Event(){}
     public int getId() {
         return id;
     }
