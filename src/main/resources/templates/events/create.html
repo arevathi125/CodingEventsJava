@@ -32,6 +32,29 @@
         <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
     <br>
+    <label> Location
+        <!--            <input type="text" name="location" class="form-control">-->
+        <input th:field="${event.location}" class="form-control">
+    </label>
+    <p class="error" th:errors="${event.location}" ></p>
+    </div>
+    <br>
+    <label> Present
+        <br>
+        <!--            <input type="text" name="isPresent" class="form-control">-->
+        True<input type="checkbox" th:field="${event.isPresent}" value="true" checked="checked" class="form-control">
+       False <input type="checkbox" th:field="${event.isPresent}" value="false" class="form-control">
+    </label>
+    <p class="error" th:errors="${event.isPresent}" ></p>
+    </div>
+    <br>
+    <label> Number Of Attendees
+        <!--            <input type="text" name="numberOfAttendees" class="form-control">-->
+        <input th:field="${event.numberOfAttendees}" class="form-control">
+    </label>
+    <p class="error" th:errors="${event.numberOfAttendees}" ></p>
+    </div>
+    <br>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-success">
     </div>
