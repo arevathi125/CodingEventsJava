@@ -19,6 +19,7 @@ public class Event {
     @Email(message = "Invalid Email.Try again.")
     private String contactEmail;
 
+    private EventType type;
     public String getContactEmail() {
         return contactEmail;
     }
@@ -27,22 +28,35 @@ public class Event {
         this.contactEmail = contactEmail;
     }
 
-    public Event(String name, String description, String contactEmail) {
+    public Event(String name, String description, String contactEmail, EventType type) {
+        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
-        this.id = nextId;
-        nextId++;
+        this.type = type;
+//        this.id = nextId;
+//        nextId++;
     }
 
     //No-arg constructor
-    public Event(){}
+    public Event(){
+        this.id = nextId;
+        nextId++;
+    }
     public int getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public String getDescription() {

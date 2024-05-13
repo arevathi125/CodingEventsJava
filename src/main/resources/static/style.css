@@ -4,3 +4,11 @@ body {
 .error {
   color: red;
 }
+
+th {
+  color: green;
+}
+
+td {
+  color: pink;
+}
