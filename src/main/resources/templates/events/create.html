@@ -7,7 +7,7 @@
 
 <p th:text="${errorMsg}" style="color:red;"></p>
 
-<form method="post">
+<form method="post" action="create">
     <div class="form-group">
         <label> Name
 <!--            <input type="text" name="name" class="form-control">-->
@@ -39,18 +39,17 @@
     <p class="error" th:errors="${event.location}" ></p>
     </div>
     <br>
-    <label> Present
-        <br>
+    <div class="form-check">
+    <label> Registration Required?
         <!--            <input type="text" name="isPresent" class="form-control">-->
-        True<input type="checkbox" th:field="${event.isPresent}" value="true" checked="checked" class="form-control">
-       False <input type="checkbox" th:field="${event.isPresent}" value="false" class="form-control">
+       <input type="checkbox" th:field="${event.registration_required}" class="form-check-input"/>
     </label>
-    <p class="error" th:errors="${event.isPresent}" ></p>
+    <p class="error" th:errors="${event.registration_required}" ></p>
     </div>
     <br>
     <label> Number Of Attendees
         <!--            <input type="text" name="numberOfAttendees" class="form-control">-->
-        <input th:field="${event.numberOfAttendees}" class="form-control">
+        <input type="number" th:field="${event.numberOfAttendees}" class="form-control">
     </label>
     <p class="error" th:errors="${event.numberOfAttendees}" ></p>
     </div>

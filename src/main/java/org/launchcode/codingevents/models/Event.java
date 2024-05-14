@@ -21,24 +21,29 @@ public class Event {
     @NotBlank(message = "Location cannot be left blank.")
     private String location;
 
-      private String isPresent;
+    @AssertTrue(message = "Registration must be required at this time.")
+      private boolean registration_required;
 
     @Positive(message = "Number of attendees must be one or more.")
     private int numberOfAttendees;
 
-        public Event(String name, String description, String contactEmail, String location, String isPresent, int numberOfAttendees) {
-        this.name = name;
+    public Event(String name, String description, String contactEmail, String location, boolean registration_required, int numberOfAttendees) {
+            this();
+            this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.location = location;
-        this.isPresent = isPresent;
+        this.registration_required = registration_required;
         this.numberOfAttendees = numberOfAttendees;
-        this.id = nextId;
-        nextId++;
+//        this.id = nextId;
+//        nextId++;
     }
 
     //No-arg constructor
-    public Event(){}
+    public Event(){
+        this.id = nextId;
+        nextId++;
+    }
     public int getId() {
         return id;
     }
@@ -75,12 +80,12 @@ public class Event {
         this.location = location;
     }
 
-    public String isPresent() {
-        return isPresent;
+    public boolean isRegistration_required() {
+        return registration_required;
     }
 
-    public void setPresent(String present) {
-        isPresent = present;
+    public void setRegistration_required(boolean registration_required) {
+        this.registration_required = registration_required;
     }
 
     public int getNumberOfAttendees() {
