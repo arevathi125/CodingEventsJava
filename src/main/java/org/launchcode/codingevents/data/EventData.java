@@ -24,7 +24,7 @@ public class EventData {
 
     // Add an event
      public static void add(Event event){
-          events.put(event.getId(), event);
+        events.put(event.getId(), event);
      }
 
     // Delete an event
