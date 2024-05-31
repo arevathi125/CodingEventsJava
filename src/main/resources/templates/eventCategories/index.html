@@ -5,15 +5,17 @@
 
 <header th:replace="fragments :: header"></header>
 
-<form method="post">
-   <div class="form-group">
-      <label>Name
-         <input th:field="${eventCategory.name}" class="form-control">
-      </label>
-      <span th:errors="${eventCategory.name}" class="error"></span>
-   </div>
-   <input type="submit" value="Create" class="btn btn-primary">
-</form>
+<table class="table table-striped">
+   <thead>
+   <tr>
+      <th>Category Name</th>
+   </tr>
+   </thead>
+   <tr th:each="category : ${categories}">
+      <td th:text="${category.name}"></td>
+   </tr>
+
+</table>
 
 </body>
 </html>
