@@ -7,7 +7,7 @@ import jakarta.persistence.MappedSuperclass;
 import java.util.Objects;
 
 @MappedSuperclass
-abstract public class AbstractEntity {
+ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue
