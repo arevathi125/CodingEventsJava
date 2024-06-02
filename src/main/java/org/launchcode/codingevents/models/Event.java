@@ -1,8 +1,10 @@
 package org.launchcode.codingevents.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -22,7 +24,11 @@ public class Event extends AbstractEntity{
     @Email(message = "Invalid Email.Try again.")
     private String contactEmail;
 
-    private EventType type;
+  //  private EventType type;
+    @ManyToOne
+    @NotNull(message = "Category is required")
+    private EventCategory eventCategory;
+
     public String getContactEmail() {
         return contactEmail;
     }
@@ -31,12 +37,14 @@ public class Event extends AbstractEntity{
         this.contactEmail = contactEmail;
     }
 
-    public Event(String name, String description, String contactEmail, EventType type) {
+    public Event(String name, String description, String contactEmail, EventCategory eventCategory) {
+       //  public Event(String name, String description, String contactEmail, EventType type) {
        // this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
-        this.type = type;
+        this.eventCategory = eventCategory;
+        //this.type = type;
 //        this.id = nextId;
 //        nextId++;
     }
@@ -54,12 +62,20 @@ public class Event extends AbstractEntity{
         return name;
     }
 
-    public EventType getType() {
-        return type;
+//    public EventType getType() {
+//        return type;
+//    }
+//
+//    public void setType(EventType type) {
+//        this.type = type;
+//    }
+
+    public EventCategory getEventCategory() {
+        return eventCategory;
     }
 
-    public void setType(EventType type) {
-        this.type = type;
+    public void setEventCategory(EventCategory eventCategory) {
+        this.eventCategory = eventCategory;
     }
 
     public String getDescription() {
